@@ -1,7 +1,7 @@
 eXtended REQuest
 =================
 
-It requires files from the base path of your app and let you configure alias to other paths. No more `../..`!! And allow faster refactorings.
+It requires files from the base path of your app and let you configure alias to other paths for faster refactorings. No more `../..`!!
 
 ## Installation
 
@@ -16,14 +16,14 @@ Add configuration file (e.i. `xreq.json`) in the same folder as `package.json`.
 ```json
 {}
 ```
-Creating this file it is required.
+Creating this file it is mandatory.
 
-Use it in your modules
+Use it in your modules:
 
 ```js
 //Current js file at foo/bar/a.js
 var xreq = require('xreq');
-//Require a file at other/folder/b.js
+//Require a file at other/folder/b.js, only searh from the base path
 var b = xreq('other/folder/b');
 ```
 
@@ -44,7 +44,7 @@ Use it in your modules:
 ```js
 //Current js file at foo/bar/a.js
 var xreq = require('xreq');
-//Require a file at "src/server/services" 
+//Require a file at "src/server/services". Use "service" alias as in the xreq.json
 var AService = xreq.services('AService'); 
 // That is better than require('../../src/server/AService');
 ```
