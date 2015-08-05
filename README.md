@@ -1,7 +1,7 @@
 eXtended REQuest
 =================
 
-It allow you to request modules (e.g. js, json...) from the base path of the current one and define other paths.
+It allows you to request modules (e.g. js, json...) from the base path of your app and define multiple base paths.
 
 
 ## Installation
