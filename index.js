@@ -6,6 +6,7 @@ var path = require("path"),
     auxpath,
     config;
 
+//Searching for config file
 while (!config) {
     try {
         config = require(path.resolve(basepath, CONFIG_FILE_NAME));
@@ -26,7 +27,9 @@ function resolver(base) {
     var resolve = function (module) {
         return require(path.resolve(base, module));
     };
-    resolve.path = base;
+    resolve.path = function (file) {
+        return file ? path.resolve(base, file) : base;
+    };
     return resolve;
 }
 
@@ -34,7 +37,7 @@ function build(parent, config) {
     Object.keys(config).forEach(function (key) {
         var value = config[key];
         if (typeof value === "string") {
-            parent[key] = resolver(path.resolve(parent.path, value));
+            parent[key] = resolver(parent.path(value));
         } else {
             throw new TypeError("Invalid value at:" + key);
         }

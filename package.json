@@ -11,5 +11,8 @@
     "url": "https://github.com/victorherraiz/xreq.git"
   },
   "author": "Víctor Herraiz Posada <victor.herraiz@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "require"
+  ]
 }
