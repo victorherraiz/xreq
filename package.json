@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/victorherraiz/xreq.git"
   },
+  "files": [
+    "index.js"
+  ],
   "author": "Víctor Herraiz Posada <victor.herraiz@gmail.com>",
   "license": "MIT",
   "keywords": [

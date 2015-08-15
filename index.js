@@ -1,7 +1,6 @@
 
 var path = require("path"),
-    parent = module.parent.filename,
-    basepath = path.dirname(parent),
+    basepath = path.dirname(module.parent.filename),
     CONFIG_FILE_NAME = "xreq.json",
     auxpath,
     config;
@@ -33,6 +32,7 @@ function resolver(base) {
     return resolve;
 }
 
+// Process configuration files
 function build(parent, config) {
     Object.keys(config).forEach(function (key) {
         var value = config[key];
