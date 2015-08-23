@@ -1,6 +1,8 @@
 eXtended REQuest
 =================
 
+[![Build Status](https://travis-ci.org/victorherraiz/xreq.svg?branch=master)](https://travis-ci.org/victorherraiz/xreq)
+
 It requires files from the base path of your app and let you configure alias to other paths for faster refactoring. No more `../..`!!
 
 ## Features
