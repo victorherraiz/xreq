@@ -16,6 +16,9 @@
   "author": "Víctor Herraiz Posada <victor.herraiz@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "require"
-  ]
+    "require", "mocks", "refactoring"
+  ],
+  "xreq": {
+    "tata" : "tata"
+  }
 }

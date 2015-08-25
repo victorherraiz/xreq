@@ -7,11 +7,11 @@ It requires files from the base path of your app and let you configure alias to 
 
 ## Features
 
-* No bootstrap required: it does not require to configure the paths at entry points.
-* Module support: It works for dependencies.
-* Multiple alias support.
-* Namespaces.
-* Local path resolution.
+* No bootstrap required
+* No dependencies 
+* Multiple alias support
+* Local path file resolution
+* Proxy support (mocks)
 
 ## Installation
 
@@ -20,13 +20,6 @@ $ npm install xreq --save
 ```
 
 ## Basic usage:
-
-Add configuration file req.json` in the same folder as `package.json`.
-
-```json
-{}
-```
-Creating this file it is mandatory.
 
 Use it in your modules:
 
@@ -37,12 +30,17 @@ var xreq = require('xreq');
 var b = xreq('other/folder/b');
 ```
 
+## How it works
+
+It search the `package.json` of your project, and build routes from that point.
+
 ## Custom paths
 
-Add some custom paths at `xreq.json`
+Add some custom paths at `package.json`
 
 ```json
-{
+"xreq": {
+	"server": "src/server",
 	"services": "src/server/services",
 	"models": "src/server/models",
 	"test": "test"
@@ -54,19 +52,12 @@ Use it in your modules:
 ```js
 //Current js file at foo/bar/a.js
 var xreq = require('xreq');
-//Require a file at "src/server/services". Use "service" alias as in the xreq.json
+//Require a file at "src/server/services". Use "service" alias as in the xreq
 var AService = xreq.services('AService'); 
 // That is better than require('../../src/server/services/AService');
 ```
 
-There are some restrictions for the entry names. Please, do not use the follow ones:
-
-* `path`: contains the absolute path.
-* `name`, `length`: `xreq` is a function with static members.
-
 ## Path resolution
-
-Every alias, including base path, has the method `path([subpath])`.
 
 ```js
 var xreq = require('xreq');
@@ -81,6 +72,8 @@ console.log(xreq.path('a.hts'));
 console.log(xreq.templates.path('products.hts')); 
 
 ```
+
+
 
 This method is quite useful for resolve template location or other static files in the local application.
 
