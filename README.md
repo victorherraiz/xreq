@@ -32,7 +32,7 @@ var b = xreq('other/folder/b');
 
 ## How it works
 
-It search the `package.json` of your project, and build routes from that point.
+It searches the `package.json` of your project, and build routes from that point.
 
 ## Custom paths
 
@@ -59,23 +59,44 @@ var AService = xreq.services('AService');
 
 ## Path resolution
 
+Add a second parameter with value `true`
+
 ```js
 var xreq = require('xreq');
 
 // Print the base location, the folder where the xreq file resides.
-console.log(xreq.path()); 
+console.log(xreq('.', true)); 
 
 // Print the complete path to file a.hbs
-console.log(xreq.path('a.hts')); 
+console.log(xreq('a.hts', true)); 
 
 // It works the same way for aliases
-console.log(xreq.templates.path('products.hts')); 
+console.log(xreq.templates('products.hts', true)); 
 
 ```
 
-
-
 This method is quite useful for resolve template location or other static files in the local application.
+
+## Proxies
+
+### Adding a proxy to 'xreq'
+
+```js
+xreq(function (file) {
+	return require('another_folder/' + file);
+});
+The following line use the proxy function.
+var bar = xreq('foo.js');
+```
+
+If the proxy function returns a falsy value the resolution continues normally.  
+
+### Removing the proxy
+
+```js
+xreq(null);
+```
+
 
 
 
