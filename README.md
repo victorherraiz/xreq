@@ -1,4 +1,4 @@
-eXtended REQuest
+eXtended REQuire
 =================
 
 [![Build Status](https://travis-ci.org/victorherraiz/xreq.svg?branch=master)](https://travis-ci.org/victorherraiz/xreq)
